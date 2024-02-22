@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Temperatura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url(../img/black-prism-concept-ai-generated.jpg);
+    background-repeat: no-repeat;
+    background-position: absolute;
+    background-size: 100%;
+    color: #fff;
+    }
+
+    .converter {
+      text-align: center;
+    }
+
+    input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter">
+    <h2>Conversor de Temperatura</h2>
+    <input type="number" id="celsius" placeholder="Celsius">
+    <button onclick="convertToCelsius()">Converter para Celsius</button>
+    <br><br>
+    <input type="number" id="fahrenheit" placeholder="Fahrenheit">
+    <button onclick="convertToFahrenheit()">Converter para Fahrenheit</button>
+    <br><br>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function convertToCelsius() {
+      let fahrenheit = document.getElementById('fahrenheit').value;
+      let celsius = (fahrenheit - 32) * 5/9;
+      document.getElementById('result').innerText = fahrenheit + ' Fahrenheit = ' + celsius.toFixed(2) + ' Celsius';
+    }
+
+    function convertToFahrenheit() {
+      let celsius = document.getElementById('celsius').value;
+      let fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById('result').innerText = celsius + ' Celsius = ' + fahrenheit.toFixed(2) + ' Fahrenheit';
+    }
+  </script>
+</body>
+</html>

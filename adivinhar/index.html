@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Adivinhação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url(../img/black-prism-concept-ai-generated.jpg);
+    background-repeat: no-repeat;
+    background-position: absolute;
+    background-size: 100%;
+    color: #fff;
+}
+    
+
+    .game {
+      text-align: center;
+    }
+
+    input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="game">
+    <h2>Jogo de Adivinhação</h2>
+    <p>Tente adivinhar o número entre 1 e 100:</p>
+    <input type="number" id="guess" min="1" max="100" placeholder="Digite um número">
+    <button onclick="checkGuess()">Verificar</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    // Gerando um número aleatório entre 1 e 100
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    console.log(randomNumber); // Apenas para testes, pode ser removido
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guess').value);
+      const message = document.getElementById('message');
+
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        message.innerText = 'Por favor, insira um número válido entre 1 e 100.';
+      } else if (guess === randomNumber) {
+        message.innerText = 'Parabéns! Você acertou o número.';
+      } else if (guess < randomNumber) {
+        message.innerText = 'Tente um número maior.';
+      } else {
+        message.innerText = 'Tente um número menor.';
+      }
+    }
+  </script>
+</body>
+</html>
